@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "matter";
+  src: url("./assets/fonts/Matter-Regular.otf");
+}
+
+@font-face {
+  font-family: "matter";
+  src: url("./assets/fonts/Matter-Bold.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "workSans";
+  src: url("./assets/fonts/WorkSans-Light.ttf");
+  font-weight: light;
+}
+
+body {
+  font-family: matter;
+  font-size: 16px;
+}
+
+.ff-ws {
+  font-family: workSans;
+  font-weight: light;
+}
