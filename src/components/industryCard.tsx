@@ -12,13 +12,13 @@ const StyledCard = styled.section`
   .description {
     font-family: workSans;
     font-weight: light;
-    font-size: 1.3rem;
+    font-size: 1.3em;
   }
 `;
 
 const StyledGird = styled.div`
   display: flex;
-  grid-gap: 1.5rem;
+  grid-gap: 1.5em;
   flex-wrap: wrap;
   justify-content: center;
 `;

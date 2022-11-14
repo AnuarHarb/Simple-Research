@@ -16,7 +16,7 @@ const StyledSidebar = styled.section<Props>`
   right: ${(props) => (props.sidebarOpen ? 0 : `-300px`)};
   transition: all 0.4s;
   z-index: 5;
-  padding: 2rem;
+  padding: 2em;
   box-sizing: border-box;
 
   .close-icon {

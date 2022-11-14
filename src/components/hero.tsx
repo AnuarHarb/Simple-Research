@@ -5,26 +5,26 @@ const StyledHero = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 4rem 0;
-  grid-gap: 2rem;
+  grid-gap: 2em;
 
   .info {
     align-self: center;
   }
 
   .title {
-    font-size: 4rem;
+    font-size: 4em;
     font-weight: bold;
   }
 
   .desciption {
     font-family: workSans;
     font-weight: light;
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 
   @media (max-width: 1200px) {
     .title {
-      font-size: 3rem;
+      font-size: 3em;
     }
   }
 
@@ -41,12 +41,13 @@ const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 1rem 0;
-  grid-gap: 2rem;
+  grid-gap: 2em;
 `;
 
 type Props = {
   title: string;
   description: string;
+  descriptionDecorator?: JSX.Element;
   grid?: boolean;
   button?: string;
   buttonOutlined?: boolean;
@@ -56,6 +57,7 @@ type Props = {
 export function Hero({
   title,
   description,
+  descriptionDecorator,
   grid,
   button,
   buttonOutlined,
@@ -66,6 +68,7 @@ export function Hero({
       <div className="info">
         <h1 className="title my-3">{title}</h1>
         <p className="desciption my-3">{description}</p>
+        {descriptionDecorator}
         {grid && (
           <StyledGrid>
             <article className="fw-bold">

@@ -16,7 +16,7 @@ const StyledFooter = styled.footer`
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 2rem;
+    gap: 2em;
     font-weight: bold;
     font-size: 20px;
     margin: 2rem 0;

@@ -1,22 +1,24 @@
 import styled from "styled-components";
 import { Button, Card } from "react-bootstrap";
 // components
-import { Hero } from "../components/hero";
-import { IndustryCard } from "../components/industryCard";
+import { Hero } from "../../components/hero";
+import { IndustryCard } from "../../components/industryCard";
+import { Steps } from "./steps";
 // images
-import HeroHome from "../assets/images/hero-home.png";
-import Design from "../assets/images/design.svg";
-import Host from "../assets/images/host.svg";
-import Analyze from "../assets/images/analyze.svg";
-import Program from "../assets/images/program.svg";
-import Discovery from "../assets/images/discovery.svg";
-import Expert from "../assets/images/research-expert.svg";
+import HeroHome from "../../assets/images/hero-home.png";
+import Design from "../../assets/images/design.svg";
+import Host from "../../assets/images/host.svg";
+import Analyze from "../../assets/images/analyze.svg";
+import Program from "../../assets/images/program.svg";
+import Discovery from "../../assets/images/discovery.svg";
+import Expert from "../../assets/images/research-expert.svg";
+import home4 from "../../assets/images/home-4.svg";
 
 const StyledGrid = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  padding-bottom: 2rem;
+  grid-gap: 2em;
+  padding-bottom: 2em;
 
   img {
     max-height: 80px;
@@ -27,11 +29,19 @@ const StyledGrid = styled.section`
 const StyledCard = styled(Card)`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  padding: 4rem;
+  grid-gap: 2em;
+  padding: 4em;
 
   .text-right {
     text-align: right;
+  }
+`;
+
+const StyledImage = styled.div`
+  max-width: 300px;
+  margin: 5em auto;
+  img {
+    width: 100%;
   }
 `;
 
@@ -98,45 +108,47 @@ export function Home() {
         </StyledGrid>
       </Hero>
 
-      <div className="d-none d-sm-block">
-        <StyledCard>
-          <div className="text-right">
-            <img src={Discovery} />
-          </div>
-          <div>
-            <h2 className="fw-bold">Discovery survey</h2>
-            <p className="ff-ws">
-              Our discovery survey helps us better understand your objectives.
-              Talk to us about your project and get full cost transparency from
-              the get go.
-            </p>
-            <Button>{"Get a cost estimate ->"}</Button>
-          </div>
-        </StyledCard>
-      </div>
+      <StyledCard className="d-none d-sm-grid">
+        <div className="text-right">
+          <img src={Discovery} />
+        </div>
+        <div>
+          <h2 className="fw-bold">Discovery survey</h2>
+          <p className="ff-ws">
+            Our discovery survey helps us better understand your objectives.
+            Talk to us about your project and get full cost transparency from
+            the get go.
+          </p>
+          <Button>{"Get a cost estimate ->"}</Button>
+        </div>
+      </StyledCard>
 
       <Hero
         title="How it works"
         description="Our process is simple, and it all starts with you!"
-        button="Learn more ->"
+        descriptionDecorator={
+          <StyledImage>
+            <img src={home4} />
+          </StyledImage>
+        }
         buttonOutlined={true}
-      />
+      >
+        <Steps />
+      </Hero>
 
-      <div className="d-none d-sm-block">
-        <StyledCard>
-          <div className="text-right">
-            <img src={Expert} />
-          </div>
-          <div>
-            <h2 className="fw-bold">Talk to a research expert</h2>
-            <p className="ff-ws">
-              Contact SimpleResearch today for a full overview of our expertise
-              and methodologies.
-            </p>
-            <Button>{"Get in touch ->"}</Button>
-          </div>
-        </StyledCard>
-      </div>
+      <StyledCard className="d-none d-sm-grid">
+        <div className="text-right">
+          <img src={Expert} />
+        </div>
+        <div>
+          <h2 className="fw-bold">Talk to a research expert</h2>
+          <p className="ff-ws">
+            Contact SimpleResearch today for a full overview of our expertise
+            and methodologies.
+          </p>
+          <Button>{"Get in touch ->"}</Button>
+        </div>
+      </StyledCard>
     </section>
   );
 }
