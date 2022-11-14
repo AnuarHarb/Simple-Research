@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { Navbar } from "./components/navbar";
-// import { Sidebar } from "./components/sidebar";
-import { Footer } from "./components/footer";
+import { Navbar } from "./components/layout/navbar";
+import { Sidebar } from "./components/layout/sidebar";
+import { Footer } from "./components/layout/footer";
 // pages
 import { Home } from "./pages/home";
 import { About } from "./pages/about";
@@ -19,7 +19,10 @@ function App() {
   return (
     <>
       <Navbar setSidebarOpen={setSidebarOpen}></Navbar>
-      {/* <Sidebar sidebarOpen={sidebarOpen}></Sidebar> */}
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      ></Sidebar>
       <Container className="mb-5">
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Container, Button, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import MenuIcon from "../assets/icons/menu.svg";
+import MenuIcon from "../../assets/icons/menu.svg";
 
 const StyledNav = styled(Nav)`
   gap: 2rem;
