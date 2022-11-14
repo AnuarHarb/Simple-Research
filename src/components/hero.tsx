@@ -28,8 +28,9 @@ const StyledHero = styled.section`
     }
   }
 
-  @media (max-width: 998px) {
+  @media (max-width: 576px) {
     grid-template-columns: 1fr;
+    padding: 2rem 0;
   }
 
   img {
@@ -64,7 +65,7 @@ export function Hero({
   children,
 }: Props) {
   return (
-    <StyledHero className="mt-5">
+    <StyledHero>
       <div className="info">
         <h1 className="title my-3">{title}</h1>
         <p className="desciption my-3">{description}</p>

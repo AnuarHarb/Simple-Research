@@ -24,6 +24,10 @@ const StyledGrid = styled.section`
     max-height: 80px;
     max-width: 100px;
   }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const StyledCard = styled(Card)`
@@ -128,7 +132,7 @@ export function Home() {
         description="Our process is simple, and it all starts with you!"
         descriptionDecorator={
           <StyledImage>
-            <img src={home4} />
+            <img className="d-none d-sm-block" src={home4} />
           </StyledImage>
         }
         buttonOutlined={true}
