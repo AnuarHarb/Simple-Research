@@ -47,7 +47,7 @@ const StyledGrid = styled.div`
 
 type Props = {
   title: string;
-  description: string;
+  description?: string;
   descriptionDecorator?: JSX.Element;
   grid?: boolean;
   button?: string;
