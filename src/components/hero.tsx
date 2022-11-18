@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 
-const StyledHero = styled.section`
+interface styledProps {
+  smallTitle?: boolean;
+  right?: boolean;
+}
+
+const StyledHero = styled.section<styledProps>`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 4rem 0;
@@ -9,17 +14,32 @@ const StyledHero = styled.section`
 
   .info {
     align-self: center;
+    grid-column: ${(props) => (props.right ? "2/3" : "1/2")};
   }
 
-  .title {
-    font-size: 4em;
+  .content {
+    grid-column: ${(props) => (props.right ? "1/2" : "2/3")};
+    grid-row: 1/2;
+  }
+
+  .hero-title {
+    font-size: ${(props) => (props.smallTitle ? "3em" : "4em")};
     font-weight: bold;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 4rem;
   }
 
   .desciption {
     font-family: workSans;
     font-weight: light;
     font-size: 1.5em;
+  }
+
+  img {
+    max-width: 80%;
+    margin: 0 auto;
   }
 
   @media (max-width: 1200px) {
@@ -47,27 +67,34 @@ const StyledGrid = styled.div`
 
 type Props = {
   title: string;
+  subtitle?: string;
   description?: string;
   descriptionDecorator?: JSX.Element;
   grid?: boolean;
   button?: string;
   buttonOutlined?: boolean;
   children?: React.ReactNode;
+  smallTitle?: boolean;
+  right?: boolean;
 };
 
 export function Hero({
   title,
+  subtitle,
   description,
   descriptionDecorator,
   grid,
   button,
   buttonOutlined,
   children,
+  smallTitle,
+  right,
 }: Props) {
   return (
-    <StyledHero>
+    <StyledHero smallTitle={smallTitle} right={right}>
       <div className="info">
-        <h1 className="title my-3">{title}</h1>
+        {subtitle && <h4 className="hero-subtitle">{subtitle}</h4>}
+        <h1 className="hero-title my-3">{title}</h1>
         <p className="desciption my-3">{description}</p>
         {descriptionDecorator}
         {grid && (
@@ -92,7 +119,7 @@ export function Hero({
           </Button>
         )}
       </div>
-      <div>{children}</div>
+      <div className="content">{children}</div>
     </StyledHero>
   );
 }

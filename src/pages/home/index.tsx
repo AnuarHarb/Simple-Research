@@ -65,7 +65,10 @@ export function Home() {
       </Hero>
 
       <div className="d-none d-sm-block">
-        <IndustryCard />
+        <IndustryCard
+          title="Industries that trust us"
+          description="The world’s most successful companies in these industries trust SimpleResearch for the market insight they need."
+        />
       </div>
 
       <Hero

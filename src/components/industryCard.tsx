@@ -23,14 +23,16 @@ const StyledGird = styled.div`
   justify-content: center;
 `;
 
-export function IndustryCard() {
+interface props {
+  title: string;
+  description: string;
+}
+
+export function IndustryCard({ title, description }: props) {
   return (
     <StyledCard className="card py-5 px-4 text-center">
-      <h1 className="fw-bold">Industries that trust us</h1>
-      <p className="description my-3">
-        The world’s most successful companies in these industries trust
-        SimpleResearch for the market insight they need.
-      </p>
+      <h1 className="fw-bold">{title}</h1>
+      <p className="description my-3">{description}</p>
       <StyledGird className="my-3">
         <img src={GoogleLogo} />
         <img src={AmazonLogo}></img>

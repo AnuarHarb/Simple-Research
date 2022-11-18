@@ -1,13 +1,18 @@
 import styled from "styled-components";
 // Components
 import { Hero } from "../../components/hero";
+import { CardCarrousel } from "../../components/cardCarrousel";
 import { IconCard } from "../../components/iconCard";
+import { ImageCard } from "../../components/imageCard";
 // Assets
 import About1 from "../../assets/images/about-1.svg";
 import About2 from "../../assets/images/about-2.svg";
 import About3 from "../../assets/images/about-3.svg";
 import About4 from "../../assets/images/about-4.svg";
 import About5 from "../../assets/images/about-5.svg";
+import About6 from "../../assets/images/about-6.svg";
+import Discovery from "../../assets/images/discovery.svg";
+import Expert from "../../assets/images/research-expert.svg";
 
 const StyledValue = styled.section`
   display: grid;
@@ -67,12 +72,21 @@ const StyledTeam = styled.section`
   }
 `;
 
+const StyledGrid = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+  margin: 2em 0;
+`;
+
 export function About() {
   return (
     <>
       <section>
-        <h1>About</h1>
-        <Hero title="Simplifying market research for organizations to get the insight they need for better decision making">
+        <Hero
+          title="Simplifying market research for organizations to get the insight they need for better decision making"
+          subtitle="About"
+        >
           <img
             className="d-none d-xs-none d-sm-none d-md-block d-lg-block"
             src={About1}
@@ -118,6 +132,47 @@ export function About() {
           audience.
         </p>
       </StyledTeam>
+
+      <CardCarrousel>
+        <ImageCard
+          title="Client testimonials"
+          description="My favorite thing about working with SimpleResearch is that the
+              company truly lives by its values. It makes for a fun, inclusive,
+              inspiring work environment where people feel comfortable bringing
+              their own perspective and ideas to work."
+        >
+          <div className="avatar text-right">
+            <img src={About6} />
+            <div>
+              <h5>Full Name</h5>
+              <p>Company Name</p>
+            </div>
+          </div>
+        </ImageCard>
+      </CardCarrousel>
+
+      <StyledGrid>
+        <ImageCard
+          vertical
+          title="Discovery survey"
+          description="Our discovery survey helps us better understand your objectives. Talk to us about your project and get full cost transparency from the get go."
+          cta="Get a cost estimate ->"
+        >
+          <div className="avatar text-right">
+            <img src={Discovery} />
+          </div>
+        </ImageCard>
+        <ImageCard
+          vertical
+          title="Talk to a research expert"
+          description="Contact SimpleResearch today for a full overview of our expertise and methodologies."
+          cta="Get in touch ->"
+        >
+          <div className="avatar text-right">
+            <img src={Expert} />
+          </div>
+        </ImageCard>
+      </StyledGrid>
     </>
   );
 }

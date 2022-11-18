@@ -69,12 +69,14 @@ export function Navbar({ setSidebarOpen }: props) {
               <Nav.Link className="fw-bold" to="/contact" as={NavLink}>
                 Contact
               </Nav.Link>
-              <Button
-                className="rounded-pill px-4 py-2"
-                variant="outline-primary"
-              >
-                Get Started
-              </Button>
+              <Nav.Link className="fw-bold" to="/calculator" as={NavLink}>
+                <Button
+                  className="rounded-pill px-4 py-2"
+                  variant="outline-primary"
+                >
+                  Get Started
+                </Button>
+              </Nav.Link>
             </StyledNav>
 
             <StyledSide className={`${width < 992 ? "d-flex" : "d-none"}`}>
