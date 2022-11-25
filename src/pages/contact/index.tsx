@@ -12,11 +12,19 @@ const StyledGrid = styled.section`
   grid-template-columns: 3fr 1fr;
   grid-gap: 2em;
 
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+
   .inner-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     margin: 2em 0;
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   header {
