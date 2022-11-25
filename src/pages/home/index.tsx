@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Button, Card } from "react-bootstrap";
+import { Carousel, Card } from "react-bootstrap";
 // components
 import { Hero } from "../../components/hero";
-import { IndustryCard } from "../../components/industryCard";
+import { CardCarrousel } from "../../components/cardCarrousel";
 import { Steps } from "./steps";
+import { ImageCard } from "../../components/imageCard";
 // images
 import HeroHome from "../../assets/images/hero-home.png";
 import Design from "../../assets/images/design.svg";
@@ -30,22 +31,15 @@ const StyledGrid = styled.section`
   }
 `;
 
-const StyledCard = styled(Card)`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2em;
-  padding: 4em;
-
-  .text-right {
-    text-align: right;
-  }
-`;
-
 const StyledImage = styled.div`
   max-width: 300px;
   margin: 5em auto;
   img {
     width: 100%;
+  }
+
+  @media (max-width: 576px) {
+    margin: 0;
   }
 `;
 
@@ -60,16 +54,14 @@ export function Home() {
           cheaper."
         grid={true}
         button={"Get Started ->"}
+        imageContent
       >
-        <img src={HeroHome} />
+        <div className="content-image">
+          <img src={HeroHome} />
+        </div>
       </Hero>
 
-      <div className="d-none d-sm-block">
-        <IndustryCard
-          title="Industries that trust us"
-          description="The world’s most successful companies in these industries trust SimpleResearch for the market insight they need."
-        />
-      </div>
+      <CardCarrousel type="industries" />
 
       <Hero
         title="What we do"
@@ -115,20 +107,16 @@ export function Home() {
         </StyledGrid>
       </Hero>
 
-      <StyledCard className="d-none d-sm-grid">
-        <div className="text-right">
+      <ImageCard
+        title="Discovery survey"
+        description="Our discovery survey helps us better understand your objectives. Talk to us about your project and get full cost transparency from the get go."
+        cta="Get a cost estimate ->"
+        ctaLink="/calculator"
+      >
+        <div className="avatar text-right">
           <img src={Discovery} />
         </div>
-        <div>
-          <h2 className="fw-bold">Discovery survey</h2>
-          <p className="ff-ws">
-            Our discovery survey helps us better understand your objectives.
-            Talk to us about your project and get full cost transparency from
-            the get go.
-          </p>
-          <Button>{"Get a cost estimate ->"}</Button>
-        </div>
-      </StyledCard>
+      </ImageCard>
 
       <Hero
         title="How it works"
@@ -143,19 +131,17 @@ export function Home() {
         <Steps />
       </Hero>
 
-      <StyledCard className="d-none d-sm-grid">
-        <div className="text-right">
+      <ImageCard
+        title="Talk to a research expert"
+        description="Contact SimpleResearch today for a full overview of our expertise
+            and methodologies."
+        cta="Get in touch ->"
+        ctaLink="/calendry"
+      >
+        <div className="avatar text-right">
           <img src={Expert} />
         </div>
-        <div>
-          <h2 className="fw-bold">Talk to a research expert</h2>
-          <p className="ff-ws">
-            Contact SimpleResearch today for a full overview of our expertise
-            and methodologies.
-          </p>
-          <Button>{"Get in touch ->"}</Button>
-        </div>
-      </StyledCard>
+      </ImageCard>
     </section>
   );
 }

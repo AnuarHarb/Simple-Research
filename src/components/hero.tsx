@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 interface styledProps {
   smallTitle?: boolean;
   right?: boolean;
+  imageContent?: boolean;
 }
 
 const StyledHero = styled.section<styledProps>`
@@ -15,6 +16,11 @@ const StyledHero = styled.section<styledProps>`
   .info {
     align-self: center;
     grid-column: ${(props) => (props.right ? "2/3" : "1/2")};
+
+    @media (max-width: 576px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .content {
@@ -25,10 +31,18 @@ const StyledHero = styled.section<styledProps>`
   .hero-title {
     font-size: ${(props) => (props.smallTitle ? "3em" : "4em")};
     font-weight: bold;
+
+    @media (max-width: 424px) {
+      font-size: 2em;
+    }
   }
 
   .hero-subtitle {
     margin-bottom: 4rem;
+
+    @media (max-width: 576px) {
+      margin-bottom: 2rem;
+    }
   }
 
   .desciption {
@@ -51,10 +65,19 @@ const StyledHero = styled.section<styledProps>`
   @media (max-width: 576px) {
     grid-template-columns: 1fr;
     padding: 2rem 0;
-  }
 
-  img {
-    width: 100%;
+    .info {
+      grid-column: 1/2;
+    }
+
+    .content {
+      grid-column: 1/2;
+      grid-row: ${(props) => (props.imageContent ? "1/2" : "auto")};
+
+      .content-image {
+        text-align: center;
+      }
+    }
   }
 `;
 
@@ -76,6 +99,7 @@ type Props = {
   children?: React.ReactNode;
   smallTitle?: boolean;
   right?: boolean;
+  imageContent?: boolean;
 };
 
 export function Hero({
@@ -89,9 +113,14 @@ export function Hero({
   children,
   smallTitle,
   right,
+  imageContent,
 }: Props) {
   return (
-    <StyledHero smallTitle={smallTitle} right={right}>
+    <StyledHero
+      smallTitle={smallTitle}
+      right={right}
+      imageContent={imageContent}
+    >
       <div className="info">
         {subtitle && <h4 className="hero-subtitle">{subtitle}</h4>}
         <h1 className="hero-title my-3">{title}</h1>

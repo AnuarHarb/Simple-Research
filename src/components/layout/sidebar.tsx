@@ -53,20 +53,12 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }: props) {
         <img src={Close} />
       </div>
       <ul>
-        <li>
+        <li onClick={() => setSidebarOpen(false)}>
           <Link to="/" className={location.pathname === "/" ? "active" : ""}>
             Home
           </Link>
         </li>
-        <li>
-          <Link
-            to="/services"
-            className={location.pathname === "/services" ? "active" : ""}
-          >
-            Services
-          </Link>
-        </li>
-        <li>
+        <li onClick={() => setSidebarOpen(false)}>
           <Link
             to="/about"
             className={location.pathname === "/about" ? "active" : ""}
@@ -74,7 +66,15 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }: props) {
             About
           </Link>
         </li>
-        <li>
+        <li onClick={() => setSidebarOpen(false)}>
+          <Link
+            to="/services"
+            className={location.pathname === "/services" ? "active" : ""}
+          >
+            Services
+          </Link>
+        </li>
+        <li onClick={() => setSidebarOpen(false)}>
           <Link
             to="/faq"
             className={location.pathname === "/faq" ? "active" : ""}
@@ -82,12 +82,20 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }: props) {
             FAQ
           </Link>
         </li>
-        <li>
+        <li onClick={() => setSidebarOpen(false)}>
           <Link
             to="/blog"
             className={location.pathname === "/blog" ? "active" : ""}
           >
             Blog
+          </Link>
+        </li>
+        <li onClick={() => setSidebarOpen(false)}>
+          <Link
+            to="/calculator"
+            className={location.pathname === "/calculator" ? "active" : ""}
+          >
+            Get Started
           </Link>
         </li>
       </ul>

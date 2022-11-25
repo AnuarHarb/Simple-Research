@@ -61,6 +61,7 @@ export function Navbar({ setSidebarOpen }: props) {
                 Services
               </Nav.Link>
               <Nav.Link className="fw-bold" to="/blog" as={NavLink}>
+                {/* <a href="https://simpleresearch.co/blog/" target="_blank"> */}
                 Blog
               </Nav.Link>
               <Nav.Link className="fw-bold" to="/faq" as={NavLink}>

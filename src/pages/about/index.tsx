@@ -10,7 +10,6 @@ import About2 from "../../assets/images/about-2.svg";
 import About3 from "../../assets/images/about-3.svg";
 import About4 from "../../assets/images/about-4.svg";
 import About5 from "../../assets/images/about-5.svg";
-import About6 from "../../assets/images/about-6.svg";
 import Discovery from "../../assets/images/discovery.svg";
 import Expert from "../../assets/images/research-expert.svg";
 
@@ -77,6 +76,10 @@ const StyledGrid = styled.section`
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
   margin: 2em 0;
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export function About() {
@@ -133,23 +136,7 @@ export function About() {
         </p>
       </StyledTeam>
 
-      <CardCarrousel>
-        <ImageCard
-          title="Client testimonials"
-          description="My favorite thing about working with SimpleResearch is that the
-              company truly lives by its values. It makes for a fun, inclusive,
-              inspiring work environment where people feel comfortable bringing
-              their own perspective and ideas to work."
-        >
-          <div className="avatar text-right">
-            <img src={About6} />
-            <div>
-              <h5>Full Name</h5>
-              <p>Company Name</p>
-            </div>
-          </div>
-        </ImageCard>
-      </CardCarrousel>
+      <CardCarrousel type="testimonial" />
 
       <StyledGrid>
         <ImageCard

@@ -18,6 +18,14 @@ const StyledGrid = styled.section`
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
   margin: 2em 0;
+
+  .avatar {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export function Services() {
@@ -35,77 +43,65 @@ export function Services() {
         ></img>
       </Hero>
 
-      <IndustryCard
-        title="Case Studies"
-        description="See how we’ve helped these companies make better decisions"
-      />
+      <CardCarrousel type="studys" />
 
       <section>
         <Hero
           smallTitle
+          imageContent
           subtitle="Design your survey"
           title="Ask the right questions, get the right answers."
           description="If you have an idea of the insights you need, but need a team with the skills and expertise to script the right questionnaire, that’s where we come in! Fill out our discovery survey to get started."
         >
-          <img
-            className="d-none d-xs-none d-sm-none d-md-block d-lg-block"
-            src={Services2}
-          ></img>
+          <img src={Services2}></img>
         </Hero>
         <Hero
           right
           smallTitle
+          imageContent
           subtitle="Program your survey"
           title="Setup your survey and use it anywhere you want."
           description="We’ll program your survey in Qualtrics, Decipher, Survey Monkey, or a multitude of other best-in-class survey hosting platforms.  Your survey will be programmed into a format that can be uploaded directly to your personal survey license – or, it can be hosted, seamlessly, in SimpleResearch’s platform."
         >
-          <img
-            className="d-none d-xs-none d-sm-none d-md-block d-lg-block"
-            src={Services3}
-          ></img>
+          <img src={Services3}></img>
         </Hero>
         <Hero
           smallTitle
+          imageContent
           subtitle="Host your survey"
           title="Access and host your data without the all the hassle."
           description="You have a survey, but don’t want to buy an expensive survey license that you’ll only use once – or that you don’t know how to use. Why buy an expensive license for a single (or a few) surveys, anyway?  No more contracts, subscriptions and hefty fees. We’ll give you simple, transparent access to data and survey respondents."
         >
-          <img
-            className="d-none d-xs-none d-sm-none d-md-block d-lg-block"
-            src={Services4}
-          ></img>
+          <img src={Services4}></img>
         </Hero>
         <Hero
           right
           smallTitle
+          imageContent
           subtitle="Analyze your survey"
           title="Make sense of your data and visualize it in a simple way."
           description="Now that you have survey data, what’s next?  I need help visualizing my data in powerpoint, keynote, excel, or other formats. The analysis can include insights and implications, be a simple cross-tab or organized files.  You can also simply outsource the work of regression, TURF, conjoint, max-diff, or other advanced analytics that are required to generate meaningful insights from your survey data."
         >
-          <img
-            className="d-none d-xs-none d-sm-none d-md-block d-lg-block"
-            src={Services5}
-          ></img>
+          <img src={Services5}></img>
         </Hero>
       </section>
 
-      <CardCarrousel>
-        <ImageCard
+      <CardCarrousel type="testimonial" />
+      {/* <ImageCard
           title="Client testimonials"
           description="My favorite thing about working with SimpleResearch is that the
               company truly lives by its values. It makes for a fun, inclusive,
               inspiring work environment where people feel comfortable bringing
               their own perspective and ideas to work."
         >
-          <div className="avatar text-right">
+          <div className="avatar">
             <img src={About6} />
             <div>
               <h5>Full Name</h5>
               <p>Company Name</p>
             </div>
           </div>
-        </ImageCard>
-      </CardCarrousel>
+        </ImageCard> */}
 
       <StyledGrid>
         <ImageCard
@@ -113,6 +109,7 @@ export function Services() {
           title="Discovery survey"
           description="Our discovery survey helps us better understand your objectives. Talk to us about your project and get full cost transparency from the get go."
           cta="Get a cost estimate ->"
+          ctaLink="/calculator"
         >
           <div className="avatar text-right">
             <img src={Discovery} />
@@ -123,6 +120,7 @@ export function Services() {
           title="Talk to a research expert"
           description="Contact SimpleResearch today for a full overview of our expertise and methodologies."
           cta="Get in touch ->"
+          ctaLink="/calendry"
         >
           <div className="avatar text-right">
             <img src={Expert} />
