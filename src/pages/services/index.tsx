@@ -36,6 +36,7 @@ export function Services() {
         subtitle="Services"
         description="Not sure how to use the right surveys to get the insight you need, when you need it? We’ll design, host and program your surveys so you don’t have to. On top of that, we’ll deliver your insights within 2-3 weeks."
         button="Get started ->"
+        link="/calculator"
       >
         <img
           className="d-none d-xs-none d-sm-none d-md-block d-lg-block"

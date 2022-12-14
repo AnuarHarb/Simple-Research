@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 import { Interweave } from "interweave";
+import { Link } from "react-router-dom";
 
 interface styledProps {
   smallTitle?: boolean;
@@ -101,6 +102,7 @@ type Props = {
   smallTitle?: boolean;
   right?: boolean;
   imageContent?: boolean;
+  link?: string;
 };
 
 export function Hero({
@@ -115,6 +117,7 @@ export function Hero({
   smallTitle,
   right,
   imageContent,
+  link,
 }: Props) {
   return (
     <StyledHero
@@ -143,12 +146,14 @@ export function Hero({
           </StyledGrid>
         )}
         {button && (
-          <Button
-            className="rounded-pill px-4 py-2"
-            variant={buttonOutlined ? "outline-primary" : "primary"}
-          >
-            {button}
-          </Button>
+          <Link to={link ? link : "/"}>
+            <Button
+              className="rounded-pill px-4 py-2"
+              variant={buttonOutlined ? "outline-primary" : "primary"}
+            >
+              {button}
+            </Button>
+          </Link>
         )}
       </div>
       <div className="content">{children}</div>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Carousel, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // components
 import { Hero } from "../../components/hero";
 import { CardCarrousel } from "../../components/cardCarrousel";
@@ -54,6 +55,7 @@ export function Home() {
           cheaper."
         grid={true}
         button={"Get Started ->"}
+        link="/calculator"
         imageContent
       >
         <div className="content-image">
@@ -67,6 +69,7 @@ export function Home() {
         title="What we do"
         description="SimpleResearch is helps clients and companies design, host and use effective survey projects to get the market insights they need, for better decision making."
         button="Learn more ->"
+        link="/services"
         buttonOutlined={true}
       >
         <StyledGrid>
