@@ -68,6 +68,7 @@ const ModalForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 1em;
+    padding: 3em;
 
     a {
       color: white;
