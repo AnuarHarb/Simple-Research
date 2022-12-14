@@ -70,16 +70,23 @@ const industries = [
 const testimonials = [
   {
     description:
-      "My favorite thing about working with SimpleResearch is that the company truly lives by its values. It makes for a fun, inclusive, inspiring work environment where people feel comfortable bringing their own perspective and ideas to work.",
-    name: "Full Name",
-    company: "Company Name",
+      "Simple Research is fast, efficient, and cost-effective.  It has allowed us access to powerful insights about Coba’s most important constituent – our customer.  We’ve been delighted with the speed, accuracy, and diligence with which Coba’s survey and research projects have been executed and delivered.",
+    name: "Joseph Saliba",
+    company: "CEO | Coba",
     image: About6,
   },
   {
     description:
-      "My favorite thing about working with SimpleResearch is that the company truly lives by its values. It makes for a fun, inclusive, inspiring work environment where people feel comfortable bringing their own perspective and ideas to work.",
-    name: "Full Name",
-    company: "Company Name",
+      "The team at Simple Research continues to support my clients in the full spectrum of survey research.  They guide me through research projects with speed and agility - supporting us in everything from survey design and survey programming, to analysis and reporting.  Simple Research makes the survey research process easy – and dare I say enjoyable – translating my clients’ key strategic questions into meaningful, actionable, and customer-centered insights.",
+    name: "John Turner",
+    company: "SVP | Survey Healthcare Global",
+    image: About6,
+  },
+  {
+    description:
+      " I love and trust Simple Research because of the speed and responsiveness at which they are able to deliver me the market insight I need. Plus, quality and value are never put second. 100% of engagements have been delivered on time, exactly how I needed them to be which has turned me into a loyal, long-term client. I strongly recommend the entire team at SimpleResearch because of the speed and value of the work they do",
+    name: "Aditya Varanasi",
+    company: "CEO | Awarity",
     image: About6,
   },
 ];

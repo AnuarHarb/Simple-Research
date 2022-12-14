@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 interface styleProps {
-  vetical: boolean;
+  vertical: boolean;
 }
 
 const StyledCard = styled(Card)<styleProps>`

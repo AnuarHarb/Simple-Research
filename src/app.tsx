@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { Navbar } from "./components/layout/navbar";
@@ -16,6 +16,7 @@ import { Calendry } from "./pages/calendry";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+
   return (
     <>
       <Navbar setSidebarOpen={setSidebarOpen}></Navbar>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 const StyledFooter = styled.footer`
@@ -22,6 +23,11 @@ const StyledFooter = styled.footer`
     margin: 2rem 0;
     flex-wrap: wrap;
   }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 export function Footer() {
@@ -30,12 +36,25 @@ export function Footer() {
       <Container>
         <div className="title">SimpleResearch</div>
         <ul>
-          <li>About</li>
-          <li>Services</li>
-          <li>Blog</li>
-          <li>FAQ</li>
-          <li>Survey cost calculator</li>
-          <li>Contact</li>
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          <Link to="/services">
+            {" "}
+            <li>Services</li>
+          </Link>
+          <Link to="/blog">
+            <li>Blog</li>
+          </Link>
+          <Link to="/faq">
+            <li>FAQ</li>
+          </Link>
+          <Link to="/calculator">
+            <li>Survey cost calculator</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
         </ul>
         <div>
           <p>© 2022 SimpleResearch.co • All rights reserved</p>

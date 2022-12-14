@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Button, Card, Badge } from "react-bootstrap";
+import { Button, Card, Badge, Modal } from "react-bootstrap";
 import currency from "currency.js";
+import { Link } from "react-router-dom";
 // assets
 import Calculator1 from "../../assets/images/calculator-1.svg";
 
@@ -46,12 +47,36 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const ModalForm = styled.form`
+  .inputs {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-top: 1rem;
+    }
+
+    input {
+      border: 1px solid #e9e6e3;
+    }
+  }
+
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    a {
+      color: white;
+    }
+  }
+`;
+
 interface props {
   services: string[];
   length: string;
   complexity: string;
   customCoding: boolean;
-  fee: boolean;
   surveyResponse: string;
   segmentation: string;
   format: string;
@@ -62,221 +87,222 @@ export function SummaryCard({
   length,
   complexity,
   customCoding,
-  fee,
   surveyResponse,
   segmentation,
   format,
 }: props) {
-  const [serviceValue, setServiceValue] = useState<number>();
-  const [lengthValue, setLenegthValue] = useState<number>(1320);
-  const [complexityValue, setComplexityValue] = useState<number>(1320);
+  const [lengthValue, setLenegthValue] = useState<number>(0);
+  const [complexityValue, setComplexityValue] = useState<number>(0);
+  const [codingValue, setCodingValue] = useState<number>(0);
+  const [surveyResponseCost, setSurveyResponseCost] = useState<number>(0);
+  const [hostFee, setHostFee] = useState<number>(0);
   const [segmentationValue, setSegmentationValue] = useState<number>(2350);
   const [formatValue, setFormatValue] = useState<number>(0);
+  const [totalValue, setTotalValue] = useState<number>(0);
+
+  const [show, setShow] = useState(false);
+  const [formSent, setFormSent] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleSend = () => {
+    setFormSent(true);
+  };
 
   useEffect(() => {
-    getServiceValue(length);
-    getComplexityValue(length, complexity);
-    getSegmentationValue(length, segmentation);
-    getFormatValue(length, format);
-  }, [length, complexity, segmentation, format]);
+    const { designValue, finalDesignValue } = calculateDesignValue(
+      length,
+      complexity
+    );
 
-  const getServiceValue = (length: string) => {
-    switch (length) {
-      case "25":
-        setLenegthValue(1320);
-        break;
-      case "50":
-        setLenegthValue(1680);
-        break;
-      case "75":
-        setLenegthValue(2125);
-        break;
-      case "100":
-        setLenegthValue(2650);
-        break;
-      case "125":
-        setLenegthValue(3600);
-        break;
-      case "150":
-        setLenegthValue(4500);
-        break;
+    const { programValue, finalProgramValue } = calculateProgramValue(
+      length,
+      complexity,
+      customCoding
+    );
+
+    const { hostValue } = calculateHostValue(surveyResponse);
+    const { analyzeValue, finalAnalyze } = calculateAnalyzeValue(
+      length,
+      segmentation,
+      format
+    );
+
+    setLenegthValue(designValue + programValue + analyzeValue);
+    setTotalValue(
+      finalDesignValue + finalProgramValue + hostValue + finalAnalyze
+    );
+  }, [
+    services,
+    length,
+    complexity,
+    segmentation,
+    format,
+    surveyResponse,
+    customCoding,
+  ]);
+
+  const calculateDesignValue = (length: string, complexity: string) => {
+    let value = 0;
+    let percentage = 1;
+
+    if (services.includes("Design")) {
+      switch (length) {
+        case "25":
+          value = 1320;
+          break;
+        case "50":
+          value = 1680;
+          break;
+        case "75":
+          value = 2125;
+          break;
+        case "100":
+          value = 2650;
+          break;
+        case "125":
+          value = 3600;
+          break;
+        case "150":
+          value = 4500;
+          break;
+      }
+
+      if (complexity === "Low") {
+        setComplexityValue(-20);
+        percentage = 0.8;
+      } else if (complexity === "High") {
+        setComplexityValue(30);
+        percentage = 1.3;
+      } else if (complexity === "Medium") {
+        setComplexityValue(0);
+        percentage = 1;
+      }
     }
+
+    const totalValue = value * percentage;
+    return { designValue: value, finalDesignValue: totalValue };
   };
 
-  const getComplexityValue = (length: string, complexity: string) => {
-    switch (length) {
-      case "25":
-        if (complexity === "Low") {
-          setComplexityValue(550);
-        } else if (complexity === "Medium") {
-          setComplexityValue(650);
-        } else if (complexity === "High") {
-          setComplexityValue(950);
-        }
-        break;
-      case "50":
-        if (complexity === "Low") {
-          setComplexityValue(750);
-        } else if (complexity === "Medium") {
-          setComplexityValue(950);
-        } else if (complexity === "High") {
-          setComplexityValue(1650);
-        }
-        break;
-      case "75":
-        if (complexity === "Low") {
-          setComplexityValue(950);
-        } else if (complexity === "Medium") {
-          setComplexityValue(1450);
-        } else if (complexity === "High") {
-          setComplexityValue(2350);
-        }
-        break;
-      case "100":
-        if (complexity === "Low") {
-          setComplexityValue(1275);
-        } else if (complexity === "Medium") {
-          setComplexityValue(1950);
-        } else if (complexity === "High") {
-          setComplexityValue(3150);
-        }
-        break;
-      case "125":
-        if (complexity === "Low") {
-          setComplexityValue(1650);
-        } else if (complexity === "Medium") {
-          setComplexityValue(2650);
-        } else if (complexity === "High") {
-          setComplexityValue(3950);
-        }
-        break;
-      case "150":
-        if (complexity === "Low") {
-          setComplexityValue(1950);
-        } else if (complexity === "Medium") {
-          setComplexityValue(3250);
-        } else if (complexity === "High") {
-          setComplexityValue(4750);
-        }
-        break;
+  const calculateProgramValue = (
+    length: string,
+    complexity: string,
+    customCoding: boolean
+  ) => {
+    let value = 0;
+    let percentage = 1;
+    let codePercentage = 1;
+
+    if (services.includes("Program")) {
+      switch (length) {
+        case "25":
+          value = 650;
+          break;
+        case "50":
+          value = 950;
+          break;
+        case "75":
+          value = 1450;
+          break;
+        case "100":
+          value = 1950;
+          break;
+        case "125":
+          value = 2650;
+          break;
+        case "150":
+          value = 3250;
+          break;
+      }
+
+      if (complexity === "Low") {
+        setComplexityValue(-20);
+        percentage = 0.8;
+      } else if (complexity === "High") {
+        setComplexityValue(30);
+        percentage = 1.3;
+      } else if (complexity === "Medium") {
+        setComplexityValue(0);
+        percentage = 1;
+      }
+
+      if (customCoding) {
+        codePercentage = 1.2;
+        setCodingValue(20);
+      }
     }
+
+    const totalValue = value * percentage * codePercentage;
+    return { programValue: value, finalProgramValue: totalValue };
   };
 
-  const getSegmentationValue = (length: string, segmentation: string) => {
-    let initialValue = 0;
-    let segmentsValue = 0;
+  const calculateHostValue = (surveyResponse: string) => {
+    let fee = 0;
+    let totalResponseCost = 0;
 
-    switch (length) {
-      case "25":
-        initialValue = 2350;
-        if (Number(segmentation) > 4) {
-          segmentsValue = 650 * Number(segmentation);
-        } else if (Number(segmentation) > 0) {
-          segmentsValue = 750 * Number(segmentation);
-        }
-        break;
-      case "50":
-        initialValue = 4350;
-        if (Number(segmentation) > 4) {
-          segmentsValue = 990 * Number(segmentation);
-        } else if (Number(segmentation) > 0) {
-          segmentsValue = 1150 * Number(segmentation);
-        }
-        break;
-      case "75":
-        initialValue = 5400;
-        if (Number(segmentation) > 4) {
-          segmentsValue = 1200 * Number(segmentation);
-        } else if (Number(segmentation) > 0) {
-          segmentsValue = 1400 * Number(segmentation);
-        }
-        break;
-      case "100":
-        initialValue = 6500;
-        if (Number(segmentation) > 4) {
-          segmentsValue = 1350 * Number(segmentation);
-        } else if (Number(segmentation) > 0) {
-          segmentsValue = 1550 * Number(segmentation);
-        }
-        break;
-      case "125":
-        initialValue = 7550;
-        if (Number(segmentation) > 4) {
-          segmentsValue = 1550 * Number(segmentation);
-        } else if (Number(segmentation) > 0) {
-          segmentsValue = 1800 * Number(segmentation);
-        }
-        break;
-      case "150":
-        initialValue = 8650;
-        if (Number(segmentation) > 4) {
-          segmentsValue = 1700 * Number(segmentation);
-        } else if (Number(segmentation) > 0) {
-          segmentsValue = 1950 * Number(segmentation);
-        }
-        break;
+    if (services.includes("Host")) {
+      fee = 375;
+      const responseCost = 0.95;
+
+      totalResponseCost = Number(surveyResponse) * responseCost;
+      setSurveyResponseCost(totalResponseCost);
+      setHostFee(fee);
     }
 
-    setSegmentationValue(initialValue + segmentsValue);
+    const totalValue = fee + totalResponseCost;
+    return { hostValue: totalValue };
   };
 
-  const getFormatValue = (length: string, format: string) => {
-    switch (length) {
-      case "25":
-        if (format === "Your Powerpoint Template") {
-          setFormatValue(850);
-        } else if (format === "Google Slides") {
-          setFormatValue(1250);
-        } else {
-          setFormatValue(0);
-        }
-        break;
-      case "50":
-        if (format === "Your Powerpoint Template") {
-          setFormatValue(1050);
-        } else if (format === "Google Slides") {
-          setFormatValue(1550);
-        } else {
-          setFormatValue(0);
-        }
-        break;
-      case "75":
-        if (format === "Your Powerpoint Template") {
-          setFormatValue(1350);
-        } else if (format === "Google Slides") {
-          setFormatValue(2150);
-        } else {
-          setFormatValue(0);
-        }
-        break;
-      case "100":
-        if (format === "Your Powerpoint Template") {
-          setFormatValue(1650);
-        } else if (format === "Google Slides") {
-          setFormatValue(2750);
-        } else {
-          setFormatValue(0);
-        }
-        break;
-      case "125":
-        if (format === "Your Powerpoint Template") {
-          setFormatValue(1950);
-        } else if (format === "Google Slides") {
-          setFormatValue(3350);
-        } else {
-          setFormatValue(0);
-        }
-        break;
-      case "150":
-        if (format === "Your Powerpoint Template") {
-          setFormatValue(2250);
-        } else if (format === "Google Slides") {
-          setFormatValue(3950);
-        } else {
-          setFormatValue(0);
-        }
-        break;
+  const calculateAnalyzeValue = (
+    length: string,
+    segmentation: string,
+    format: string
+  ) => {
+    let value = 0;
+    let totalSegmentationCost = 0;
+    let formatCost = 0;
+    setFormatValue(0);
+
+    if (services.includes("Analyze")) {
+      switch (length) {
+        case "25":
+          value = 2350;
+          break;
+        case "50":
+          value = 4350;
+          break;
+        case "75":
+          value = 5400;
+          break;
+        case "100":
+          value = 6500;
+          break;
+        case "125":
+          value = 7550;
+          break;
+        case "150":
+          value = 8650;
+          break;
+      }
+
+      const responseCost = 7;
+
+      setFormatValue(0);
+      if (format === "Your Powerpoint Template") {
+        formatCost = value * 0.15;
+        setFormatValue(15);
+      } else if (format === "Google Slides") {
+        formatCost = value * 0.2;
+        setFormatValue(20);
+      }
+
+      totalSegmentationCost = Number(segmentation) * responseCost;
+      setSegmentationValue(totalSegmentationCost);
     }
+
+    const totalValue = value + totalSegmentationCost + formatCost;
+    return { analyzeValue: value, finalAnalyze: totalValue };
   };
 
   return (
@@ -312,7 +338,7 @@ export function SummaryCard({
           <h5>Complexity</h5>
           <div className="summary-values">
             <p>{complexity}</p>
-            <p>{currency(complexityValue).format()}</p>
+            <p>{complexityValue}%</p>
           </div>
         </li>
 
@@ -320,15 +346,15 @@ export function SummaryCard({
           <h5>Custom Coding</h5>
           <div className="summary-values">
             <p>{customCoding ? "Yes" : "No"}</p>
-            <p>-20%</p>
+            <p>{codingValue}%</p>
           </div>
         </li>
 
         <li className="summary-row">
           <h5>Setup Fee</h5>
           <div className="summary-values">
-            <p>{fee ? "One-time fee of $375" : "No"}</p>
-            <p>-20%</p>
+            <p>{services.includes("Host") ? "One-time fee of $375" : "No"}</p>
+            <p>{currency(hostFee).format()}</p>
           </div>
         </li>
 
@@ -336,7 +362,7 @@ export function SummaryCard({
           <h5>Num. of Survey Responses</h5>
           <div className="summary-values">
             <p>{surveyResponse}</p>
-            <p>-20%</p>
+            <p>{currency(surveyResponseCost).format()}</p>
           </div>
         </li>
 
@@ -351,8 +377,8 @@ export function SummaryCard({
         <li className="summary-row">
           <h5>Report Format</h5>
           <div className="summary-values">
-            <p>{format}</p>
-            <p>{currency(formatValue).format()}</p>
+            <p>{services.includes("Analyze") ? format : "-"}</p>
+            <p>{formatValue}% </p>
           </div>
         </li>
 
@@ -360,11 +386,7 @@ export function SummaryCard({
           <h5>Estimated cost</h5>
           <div className="summary-values">
             <p></p>
-            <h5>
-              {currency(
-                lengthValue + complexityValue + segmentationValue + formatValue
-              ).format()}
-            </h5>
+            <h5>{currency(totalValue).format()}</h5>
           </div>
         </li>
       </ul>
@@ -373,8 +395,46 @@ export function SummaryCard({
         <p>
           Need further help with your survey? We can help you with everything.
         </p>
-        <Button>Let’s get started</Button>
+        <Button onClick={() => handleShow()}>Let’s get started</Button>
       </div>
+
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Body>
+          <ModalForm>
+            {formSent ? (
+              <section className="modal-container">
+                <h2>
+                  We’ve received your info, feel free to schedule a call to meet
+                  a research specialist.
+                </h2>
+                <Button variant="primary" onClick={handleSend}>
+                  <Link to="/calendry"> {"Schedule a call ->"} </Link>
+                </Button>
+              </section>
+            ) : (
+              <section className="modal-container">
+                <h2>
+                  Enter your email, get your survey price breakdown and get
+                  started.
+                </h2>
+
+                <section className="inputs">
+                  <label>Full name</label>
+                  <input type="text"></input>
+                  <label>Company name</label>
+                  <input type="text"></input>
+                  <label>Email</label>
+                  <input type="text"></input>
+                </section>
+
+                <Button variant="primary" onClick={handleSend}>
+                  {"Send ->"}
+                </Button>
+              </section>
+            )}
+          </ModalForm>
+        </Modal.Body>
+      </Modal>
     </StyledCard>
   );
 }

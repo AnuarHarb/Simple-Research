@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // components
 import { Hero } from "../../components/hero";
 import { ImageCard } from "../../components/imageCard";
@@ -48,7 +50,41 @@ const StyledGrid = styled.section`
   }
 `;
 
+const ModalForm = styled.form`
+  .inputs {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-top: 1rem;
+    }
+
+    input {
+      border: 1px solid #e9e6e3;
+    }
+  }
+
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    a {
+      color: white;
+    }
+  }
+`;
+
 export function Contact() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleSend = () => {
+    console.log("send");
+  };
+
   return (
     <>
       <Hero
@@ -122,7 +158,7 @@ export function Contact() {
             <input type="text"></input>
             <label>How can we help you? (optional)</label>
             <input type="text"></input>
-            <Button>{"Send message ->"}</Button>
+            <Button onClick={handleShow}>{"Send message ->"}</Button>
           </section>
         </section>
 
@@ -149,6 +185,22 @@ export function Contact() {
           </ImageCard>
         </aside>
       </StyledGrid>
+
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Body>
+          <ModalForm>
+            <section className="modal-container">
+              <h2>
+                We’ve received your info, feel free to schedule a call to meet a
+                research specialist.
+              </h2>
+              <Button variant="primary" onClick={handleSend}>
+                <Link to="/calendry"> {"Schedule a call ->"} </Link>
+              </Button>
+            </section>
+          </ModalForm>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

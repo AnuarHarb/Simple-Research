@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
+import { Interweave } from "interweave";
 
 interface styledProps {
   smallTitle?: boolean;
@@ -124,7 +125,9 @@ export function Hero({
       <div className="info">
         {subtitle && <h4 className="hero-subtitle">{subtitle}</h4>}
         <h1 className="hero-title my-3">{title}</h1>
-        <p className="desciption my-3">{description}</p>
+        <p className="desciption my-3">
+          <Interweave content={description}></Interweave>
+        </p>
         {descriptionDecorator}
         {grid && (
           <StyledGrid>
