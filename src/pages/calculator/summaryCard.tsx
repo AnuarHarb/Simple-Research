@@ -342,45 +342,59 @@ export function SummaryCard({
           </div>
         </li>
 
-        <li className="summary-row">
-          <h5>Custom Coding</h5>
-          <div className="summary-values">
-            <p>{customCoding ? "Yes" : "No"}</p>
-            <p>{codingValue}%</p>
-          </div>
-        </li>
+        {services.includes("Program") && (
+          <li className="summary-row">
+            <h5>Custom Coding</h5>
+            <div className="summary-values">
+              <p>{customCoding ? "Yes" : "No"}</p>
+              <p>{codingValue}%</p>
+            </div>
+          </li>
+        )}
 
-        <li className="summary-row">
-          <h5>Setup Fee</h5>
-          <div className="summary-values">
-            <p>{services.includes("Host") ? "One-time fee of $375" : "No"}</p>
-            <p>{currency(hostFee).format()}</p>
-          </div>
-        </li>
+        {services.includes("Host") && (
+          <>
+            <li className="summary-row">
+              <h5>Setup Fee</h5>
+              <div className="summary-values">
+                <p>
+                  {services.includes("Host") ? "One-time fee of $375" : "No"}
+                </p>
+                <p>{currency(hostFee).format()}</p>
+              </div>
+            </li>
 
-        <li className="summary-row">
-          <h5>Num. of Survey Responses</h5>
-          <div className="summary-values">
-            <p>{surveyResponse}</p>
-            <p>{currency(surveyResponseCost).format()}</p>
-          </div>
-        </li>
+            <li className="summary-row">
+              <h5>Num. of Survey Responses</h5>
+              <div className="summary-values">
+                <p>{surveyResponse}</p>
+                <p>{currency(surveyResponseCost).format()}</p>
+              </div>
+            </li>
+          </>
+        )}
 
-        <li className="summary-row">
-          <h5>Segmentation Add-on</h5>
-          <div className="summary-values">
-            <p>{segmentation === "0" ? "Aggregate data only" : segmentation}</p>
-            <p>{currency(segmentationValue).format()}</p>
-          </div>
-        </li>
+        {services.includes("Analyze") && (
+          <>
+            <li className="summary-row">
+              <h5>Segmentation Add-on</h5>
+              <div className="summary-values">
+                <p>
+                  {segmentation === "0" ? "Aggregate data only" : segmentation}
+                </p>
+                <p>{currency(segmentationValue).format()}</p>
+              </div>
+            </li>
 
-        <li className="summary-row">
-          <h5>Report Format</h5>
-          <div className="summary-values">
-            <p>{services.includes("Analyze") ? format : "-"}</p>
-            <p>{formatValue}% </p>
-          </div>
-        </li>
+            <li className="summary-row">
+              <h5>Report Format</h5>
+              <div className="summary-values">
+                <p>{services.includes("Analyze") ? format : "-"}</p>
+                <p>{formatValue}% </p>
+              </div>
+            </li>
+          </>
+        )}
 
         <li className="summary-row">
           <h5>Estimated cost</h5>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // components
 import { Hero } from "../../components/hero";
 import { ImageCard } from "../../components/imageCard";
+import { sendEmail } from "../../components/emailSender";
 // assets
 import Discovery from "../../assets/images/discovery.svg";
 import Expert from "../../assets/images/research-expert.svg";
@@ -78,12 +79,16 @@ const ModalForm = styled.form`
 
 export function Contact() {
   const [show, setShow] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [company, setCompany] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleSend = () => {
-    console.log("send");
+    sendEmail({ user: { name, email, company }, message });
   };
 
   return (
@@ -152,13 +157,25 @@ export function Contact() {
 
           <section className="inputs">
             <label>Full name</label>
-            <input type="text"></input>
+            <input
+              type="text"
+              onChange={(event) => setName(event.target.value)}
+            ></input>
             <label>Company name</label>
-            <input type="text"></input>
+            <input
+              type="text"
+              onChange={(event) => setCompany(event.target.value)}
+            ></input>
             <label>Email</label>
-            <input type="text"></input>
+            <input
+              type="text"
+              onChange={(event) => setEmail(event.target.value)}
+            ></input>
             <label>How can we help you? (optional)</label>
-            <input type="text"></input>
+            <input
+              type="text"
+              onChange={(event) => setMessage(event.target.value)}
+            ></input>
             <Button onClick={handleShow}>{"Send message ->"}</Button>
           </section>
         </section>

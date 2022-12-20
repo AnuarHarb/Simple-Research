@@ -37,32 +37,38 @@ const industries = [
   },
   {
     title: "Digital",
-    description: "What type of problem did we help them to solve",
+    description:
+      "These clients fine-tuned their online offerings and converted their digital customers into engaged enthusiasts with our consumer research and insights.",
     logos: industryLogos,
   },
   {
     title: "Financial",
-    description: "What type of problem did we help them to solve",
+    description:
+      "These companies use Simple Research to get informed investment decisions, generate operational insights for portfolio companies, and study consumer perceptions, behaviors, and trends.",
     logos: industryLogos,
   },
   {
     title: "CPG",
-    description: "What type of problem did we help them to solve",
+    description:
+      "Our consumer product and services clients leverage consumer research and insights to highlight product and service opportunities, test marketing stimuli, and understand competitive positioning.",
     logos: industryLogos,
   },
   {
     title: "Restaurant / Retail",
-    description: "What type of problem did we help them to solve",
+    description:
+      "These customers are able to discover better product and service opportunities while strongly positioning themselves with our consumer research and insights.",
     logos: industryLogos,
   },
   {
     title: "Hospitality",
-    description: "What type of problem did we help them to solve",
+    description:
+      "Our hotel and hospitality clients leverage consumer research and insights to track guest feedback, identify service opportunity areas, and hone service offerings to ensure they are competitive and differentiated.",
     logos: industryLogos,
   },
   {
     title: "Healthcare",
-    description: "What type of problem did we help them to solve",
+    description:
+      "Healthcare clients we work with leverage consumer research and insights to track patient satisfaction and feedback, highlight service opportunities, understand competitive positioning, and test new patient service models.",
     logos: industryLogos,
   },
 ];

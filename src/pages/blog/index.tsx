@@ -7,6 +7,7 @@ import { BlogCard } from "../../components/blogCard";
 // assets
 import Discovery from "../../assets/images/discovery.svg";
 import Expert from "../../assets/images/research-expert.svg";
+import { Outlet } from "react-router-dom";
 
 const HighlightPost = styled.section`
   @media (max-width: 576px) {
@@ -50,6 +51,7 @@ export function Blog() {
   const postsResponse = async () => {
     setLoading(true);
     const postResponse = await getPosts(1);
+    console.log(postResponse);
     setLoading(false);
     setPosts(postResponse);
   };
@@ -60,6 +62,8 @@ export function Blog() {
 
   return (
     <section>
+      <Outlet />
+
       <Hero
         title="Blog"
         description="Check out our blog for the latest tips, tricks, and happenings in the world of market research. Read more about current topics like survey fatigue, quality of response, best practice and how-to’s. "

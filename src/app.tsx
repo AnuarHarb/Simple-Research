@@ -13,6 +13,7 @@ import { Contact } from "./pages/contact";
 import { Calculator } from "./pages/calculator";
 import { Services } from "./pages/services";
 import { Calendry } from "./pages/calendry";
+import { BlogPage } from "./pages/blog/blogPage";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -28,7 +29,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog">
+            <Route index element={<Blog />} />
+            <Route path=":postId" element={<BlogPage />} />
+          </Route>
           <Route path="/faq" element={<Faq />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/calculator" element={<Calculator />} />

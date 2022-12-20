@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Interweave } from "interweave";
+import { Link } from "react-router-dom";
+import moment from "moment";
 
 interface StyleProps {
   vertical?: boolean;
@@ -44,15 +46,19 @@ export function BlogCard({ post, vertical }: Props) {
         <img src={post._embedded["wp:featuredmedia"][0].source_url}></img>
       </div>
       <div className="image">
+        <p>
+          Written on
+          <Interweave
+            content={moment(post.date).format(" MMMM DD, yyyy")}
+          ></Interweave>
+        </p>
         <h4>
           <Interweave content={post.title.rendered}></Interweave>
         </h4>
-        <p>
+        <div>
           <Interweave content={post.excerpt.rendered}></Interweave>
-        </p>
-        <a href={post.link} target="_blank">
-          Read more...
-        </a>
+        </div>
+        <Link to={String(post.id)}>Read more...</Link>
       </div>
     </StyledPost>
   );
