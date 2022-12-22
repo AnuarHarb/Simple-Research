@@ -4,8 +4,8 @@ import { Hero } from "../../components/hero";
 import { ImageCard } from "../../components/imageCard";
 import { CollapsedCard } from "../../components/collapsedCard";
 // assets
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 
 const StyledGrid = styled.section`
   display: grid;

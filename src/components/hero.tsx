@@ -11,9 +11,10 @@ interface styledProps {
 
 const StyledHero = styled.section<styledProps>`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 4fr;
   padding: 4rem 0;
   grid-gap: 2em;
+  align-items: center;
 
   .info {
     align-self: center;
@@ -135,13 +136,13 @@ export function Hero({
         {grid && (
           <StyledGrid>
             <article className="fw-bold">
-              Configure your survey services and specs
+              Configure your survey or research project
             </article>
             <article className="fw-bold">
               Calculate the price, no hidden fees
             </article>
             <article className="fw-bold">
-              Launch your survey in days, not weeks
+              Get survey data in days, not weeks
             </article>
           </StyledGrid>
         )}

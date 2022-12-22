@@ -7,13 +7,13 @@ import { CardCarrousel } from "../../components/cardCarrousel";
 import { Steps } from "./steps";
 import { ImageCard } from "../../components/imageCard";
 // images
-import HeroHome from "../../assets/images/hero-home.png";
+import HeroHome from "../../assets/images/home-cover.png";
 import Design from "../../assets/images/design.svg";
 import Host from "../../assets/images/host.svg";
 import Analyze from "../../assets/images/analyze.svg";
 import Program from "../../assets/images/program.svg";
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 import home4 from "../../assets/images/home-4.svg";
 
 const StyledGrid = styled.section`

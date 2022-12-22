@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Button, Card, Badge, Modal } from "react-bootstrap";
 import currency from "currency.js";
 import { Link } from "react-router-dom";
+import { sendEmail } from "../../components/emailSender";
 // assets
 import Calculator1 from "../../assets/images/calculator-1.svg";
 
@@ -102,12 +103,34 @@ export function SummaryCard({
 
   const [show, setShow] = useState(false);
   const [formSent, setFormSent] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [company, setCompany] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const message = {
+    lengthValue,
+    complexityValue,
+    codingValue,
+    surveyResponseCost,
+    hostFee,
+    segmentationValue,
+    formatValue,
+    totalValue,
+    services,
+    length,
+    complexity,
+    customCoding,
+    surveyResponse,
+    segmentation,
+    format,
+  };
+
   const handleSend = () => {
     setFormSent(true);
+    sendEmail({ user: { name, email, company }, message, type: "breakdown" });
   };
 
   useEffect(() => {
@@ -409,10 +432,13 @@ export function SummaryCard({
         <p>
           Need further help with your survey? We can help you with everything.
         </p>
-        <Button onClick={() => handleShow()}>Let’s get started</Button>
+        <Button className="rounded-pill" onClick={() => handleShow()}>
+          Let’s get started
+        </Button>
       </div>
 
       <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
           <ModalForm>
             {formSent ? (
@@ -421,7 +447,11 @@ export function SummaryCard({
                   We’ve received your info, feel free to schedule a call to meet
                   a research specialist.
                 </h2>
-                <Button variant="primary" onClick={handleSend}>
+                <Button
+                  className="rounded-pill"
+                  variant="primary"
+                  onClick={handleSend}
+                >
                   <Link to="/calendry"> {"Schedule a call ->"} </Link>
                 </Button>
               </section>
@@ -434,14 +464,27 @@ export function SummaryCard({
 
                 <section className="inputs">
                   <label>Full name</label>
-                  <input type="text"></input>
+                  <input
+                    type="text"
+                    onChange={(event) => setName(event.target.value)}
+                  ></input>
                   <label>Company name</label>
-                  <input type="text"></input>
+                  <input
+                    type="text"
+                    onChange={(event) => setCompany(event.target.value)}
+                  ></input>
                   <label>Email</label>
-                  <input type="text"></input>
+                  <input
+                    type="text"
+                    onChange={(event) => setEmail(event.target.value)}
+                  ></input>
                 </section>
 
-                <Button variant="primary" onClick={handleSend}>
+                <Button
+                  className="rounded-pill"
+                  variant="primary"
+                  onClick={handleSend}
+                >
                   {"Send ->"}
                 </Button>
               </section>

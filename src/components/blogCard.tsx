@@ -10,7 +10,7 @@ interface StyleProps {
 const StyledPost = styled.article<StyleProps>`
   display: grid;
   grid-template-columns: ${(p) => (p.vertical ? "1fr" : "1fr 1fr")};
-  grid-gap: 1em;
+  grid-gap: 2em;
   margin: 1em 0;
   align-items: center;
 
@@ -18,7 +18,9 @@ const StyledPost = styled.article<StyleProps>`
     width: 100%;
 
     img {
+      height: 350px;
       width: 100%;
+      object-fit: cover;
     }
   }
 
@@ -32,20 +34,27 @@ const StyledPost = styled.article<StyleProps>`
       text-decoration: underline;
     }
   }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
 `;
 
 interface Props {
   post: any;
   vertical?: boolean;
+  highlight?: boolean;
 }
 
-export function BlogCard({ post, vertical }: Props) {
+export function BlogCard({ post, vertical, highlight }: Props) {
   return (
     <StyledPost vertical={vertical}>
       <div className="image-conteinr">
         <img src={post._embedded["wp:featuredmedia"][0].source_url}></img>
       </div>
-      <div className="image">
+      <div className="content">
         <p>
           Written on
           <Interweave
@@ -55,10 +64,12 @@ export function BlogCard({ post, vertical }: Props) {
         <h4>
           <Interweave content={post.title.rendered}></Interweave>
         </h4>
-        <div>
-          <Interweave content={post.excerpt.rendered}></Interweave>
-        </div>
-        <Link to={String(post.id)}>Read more...</Link>
+        {highlight && (
+          <div>
+            <Interweave content={post.excerpt.rendered}></Interweave>
+          </div>
+        )}
+        <Link to={String(post.id)}>{"Read more ->"}</Link>
       </div>
     </StyledPost>
   );

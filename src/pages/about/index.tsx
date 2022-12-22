@@ -5,13 +5,13 @@ import { CardCarrousel } from "../../components/cardCarrousel";
 import { IconCard } from "../../components/iconCard";
 import { ImageCard } from "../../components/imageCard";
 // Assets
-import About1 from "../../assets/images/about-1.svg";
+import About1 from "../../assets/images/about-1.png";
 import About2 from "../../assets/images/about-2.svg";
 import About3 from "../../assets/images/about-3.svg";
 import About4 from "../../assets/images/about-4.svg";
-import About5 from "../../assets/images/about-5.svg";
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import About5 from "../../assets/images/about-5.png";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 
 const StyledValue = styled.section`
   display: grid;
@@ -59,6 +59,10 @@ const StyledTeam = styled.section`
     font-size: 1.5em;
   }
 
+  img {
+    width: 100%;
+  }
+
   @media (max-width: 992px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -93,6 +97,7 @@ export function About() {
           <img
             className="d-none d-xs-none d-sm-none d-md-block d-lg-block"
             src={About1}
+            style={{ maxWidth: "60%" }}
           ></img>
         </Hero>
       </section>
@@ -144,6 +149,7 @@ export function About() {
           title="Discovery survey"
           description="Our discovery survey helps us better understand your objectives. Talk to us about your project and get full cost transparency from the get go."
           cta="Get a cost estimate ->"
+          ctaLink="/calculator"
         >
           <div className="avatar text-right">
             <img src={Discovery} />
@@ -154,6 +160,7 @@ export function About() {
           title="Talk to a research expert"
           description="Contact SimpleResearch today for a full overview of our expertise and methodologies."
           cta="Get in touch ->"
+          ctaLink="/calendry"
         >
           <div className="avatar text-right">
             <img src={Expert} />

@@ -5,8 +5,8 @@ import { Hero } from "../../components/hero";
 import { ImageCard } from "../../components/imageCard";
 import { BlogCard } from "../../components/blogCard";
 // assets
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 import { Outlet } from "react-router-dom";
 
 const HighlightPost = styled.section`
@@ -17,7 +17,7 @@ const HighlightPost = styled.section`
 
 const StyledGrid = styled.section`
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 5fr 2fr;
   grid-gap: 2em;
 
   @media (max-width: 576px) {
@@ -73,7 +73,7 @@ export function Blog() {
         {loading ? (
           <p>loading posts...</p>
         ) : (
-          posts.length && <BlogCard post={posts[0]} />
+          posts.length && <BlogCard post={posts[0]} highlight />
         )}
       </HighlightPost>
 

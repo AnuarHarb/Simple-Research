@@ -11,7 +11,13 @@ const StyledCard = styled(Card)<styleProps>`
   grid-template-columns: ${(props) => (props.vertical ? "1fr" : "2fr 3fr")};
   grid-gap: 2em;
   padding: 4em;
-  margin: 2em 0;
+  align-items: center;
+  min-height: 320px;
+
+  img {
+    width: 100%;
+    max-width: 250px;
+  }
 
   @media (max-width: 576px) {
     grid-template-columns: 1fr;
@@ -58,11 +64,11 @@ export function ImageCard({
     <StyledCard vertical={vertical}>
       <div className="text-right">{children}</div>
       <div>
-        <h2 className="fw-bold mb-2">{title}</h2>
+        {title && <h2 className="fw-bold mb-2">{title}</h2>}
         <p className="ff-ws">{description}</p>
         {cta && (
           <Link to={ctaLink}>
-            <Button>{cta}</Button>
+            <Button variant="link">{cta}</Button>
           </Link>
         )}
       </div>

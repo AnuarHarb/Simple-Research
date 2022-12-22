@@ -4,25 +4,108 @@ import { ImageCard } from "./imageCard";
 // assets
 import GoogleLogo from "../assets/images/logos/google.svg";
 import AmazonLogo from "../assets/images/logos/amazon.svg";
+import InstagramLogo from "../assets/images/logos/instagram.svg";
+import FacebookLogo from "../assets/images/logos/facebook.svg";
+import QuialiticsLogo from "../assets/images/logos/quialitics.svg";
+import SvpLogo from "../assets/images/logos/svp.svg";
+
+import LendingLogo from "../assets/images/logos/lending.svg";
+import WellsLogo from "../assets/images/logos/wells.svg";
+import GoldenLogo from "../assets/images/logos/golden.svg";
 import CapitalLogo from "../assets/images/logos/capital.svg";
-import ExpediaLogo from "../assets/images/logos/expedia.svg";
-import UberLogo from "../assets/images/logos/uber.svg";
+import FarmersLogo from "../assets/images/logos/farmers.svg";
+import charlesLogo from "../assets/images/logos/charles.svg";
+import extradeLogo from "../assets/images/logos/extrade.svg";
+
+import fritoLogo from "../assets/images/logos/frito.svg";
+import smukersLogo from "../assets/images/logos/smukers.svg";
+import millsLogo from "../assets/images/logos/mills.svg";
+import foodLogo from "../assets/images/logos/food.svg";
+import redbullLogo from "../assets/images/logos/redbull.svg";
+import wineLogo from "../assets/images/logos/wine.svg";
+import michelinLogo from "../assets/images/logos/michelin.svg";
+
+import pandaLogo from "../assets/images/logos/panda.svg";
+import pizzaLogo from "../assets/images/logos/pizza.svg";
+import tommyLogo from "../assets/images/logos/tommy.svg";
 import BoseLogo from "../assets/images/logos/bose.svg";
-import AdidasLogo from "../assets/images/logos/adidas.svg";
-import DeltaLogo from "../assets/images/logos/delta.svg";
+import oldnavyLogo from "../assets/images/logos/oldnavy.svg";
+import AddidasLogo from "../assets/images/logos/adidas.svg";
+import barklyLogo from "../assets/images/logos/barkly.svg";
+
+import UberLogo from "../assets/images/logos/uber.svg";
+import vikingLogo from "../assets/images/logos/viking.svg";
+import ExpediaLogo from "../assets/images/logos/expedia.svg";
+import carnivalLogo from "../assets/images/logos/carnival.svg";
+import hiltonLogo from "../assets/images/logos/hilton.svg";
+import deltaLogo from "../assets/images/logos/delta.svg";
+
+import texasLogo from "../assets/images/logos/texas.svg";
+import meritusLogo from "../assets/images/logos/meritus.svg";
+import centralLogo from "../assets/images/logos/central.svg";
+import blueLogo from "../assets/images/logos/blue.svg";
+import aspireLogo from "../assets/images/logos/aspire.svg";
 
 import About6 from "../assets/images/about-6.svg";
 
 const industryLogos = [
   GoogleLogo,
+  InstagramLogo,
   AmazonLogo,
-  CapitalLogo,
-  ExpediaLogo,
-  UberLogo,
-  BoseLogo,
-  AdidasLogo,
-  DeltaLogo,
+  QuialiticsLogo,
+  FacebookLogo,
+  SvpLogo,
 ];
+
+const DigitalLogos = [
+  GoogleLogo,
+  InstagramLogo,
+  AmazonLogo,
+  QuialiticsLogo,
+  FacebookLogo,
+  SvpLogo,
+];
+
+const FinancialLogos = [
+  LendingLogo,
+  WellsLogo,
+  CapitalLogo,
+  GoldenLogo,
+  FarmersLogo,
+  charlesLogo,
+  extradeLogo,
+];
+
+const CPGLogos = [
+  fritoLogo,
+  smukersLogo,
+  millsLogo,
+  foodLogo,
+  redbullLogo,
+  wineLogo,
+  michelinLogo,
+];
+
+const RetailLogos = [
+  pandaLogo,
+  pizzaLogo,
+  tommyLogo,
+  BoseLogo,
+  oldnavyLogo,
+  AddidasLogo,
+  barklyLogo,
+];
+
+const HospitalityLogos = [
+  UberLogo,
+  vikingLogo,
+  ExpediaLogo,
+  carnivalLogo,
+  hiltonLogo,
+  deltaLogo,
+];
+
+const HealthLogos = [texasLogo, meritusLogo, centralLogo, blueLogo, aspireLogo];
 
 interface props {
   type: string;
@@ -30,46 +113,40 @@ interface props {
 
 const industries = [
   {
-    title: "Industries that trust us",
-    description:
-      "The world’s most successful companies in these industries trust SimpleResearch for the market insight they need.",
-    logos: industryLogos,
-  },
-  {
     title: "Digital",
     description:
       "These clients fine-tuned their online offerings and converted their digital customers into engaged enthusiasts with our consumer research and insights.",
-    logos: industryLogos,
+    logos: DigitalLogos,
   },
   {
     title: "Financial",
     description:
       "These companies use Simple Research to get informed investment decisions, generate operational insights for portfolio companies, and study consumer perceptions, behaviors, and trends.",
-    logos: industryLogos,
+    logos: FinancialLogos,
   },
   {
     title: "CPG",
     description:
       "Our consumer product and services clients leverage consumer research and insights to highlight product and service opportunities, test marketing stimuli, and understand competitive positioning.",
-    logos: industryLogos,
+    logos: CPGLogos,
   },
   {
     title: "Restaurant / Retail",
     description:
       "These customers are able to discover better product and service opportunities while strongly positioning themselves with our consumer research and insights.",
-    logos: industryLogos,
+    logos: RetailLogos,
   },
   {
     title: "Hospitality",
     description:
       "Our hotel and hospitality clients leverage consumer research and insights to track guest feedback, identify service opportunity areas, and hone service offerings to ensure they are competitive and differentiated.",
-    logos: industryLogos,
+    logos: HospitalityLogos,
   },
   {
     title: "Healthcare",
     description:
       "Healthcare clients we work with leverage consumer research and insights to track patient satisfaction and feedback, highlight service opportunities, understand competitive positioning, and test new patient service models.",
-    logos: industryLogos,
+    logos: HealthLogos,
   },
 ];
 
@@ -99,47 +176,51 @@ const testimonials = [
 
 export function CardCarrousel({ type }: props) {
   return (
-    <Carousel>
-      {type === "industries" &&
-        industries.map((card, index) => (
-          <Carousel.Item key={index}>
-            <IndustryCard
-              title={card.title}
-              description={card.description}
-              logos={card.logos}
-            />
-          </Carousel.Item>
-        ))}
+    <>
+      <h2 style={{ textAlign: "center", margin: "1em 0" }}>
+        {type === "industries"
+          ? "Companies that trust us"
+          : "Client Testimonisl"}
+      </h2>
 
-      {type === "studys" &&
-        industries.map((card, index) => (
-          <Carousel.Item key={index}>
-            <IndustryCard
-              title={card.title}
-              description={card.description}
-              logos={card.logos}
-            />
-          </Carousel.Item>
-        ))}
+      <Carousel variant="dark">
+        {type === "industries" &&
+          industries.map((card, index) => (
+            <Carousel.Item key={index}>
+              <IndustryCard
+                title={card.title}
+                description={card.description}
+                logos={card.logos}
+              />
+            </Carousel.Item>
+          ))}
 
-      {type === "testimonial" &&
-        testimonials.map((card, index) => (
-          <Carousel.Item key={index}>
-            <ImageCard
-              key={index}
-              title="Client testimonials"
-              description={card.description}
-            >
-              <div className="avatar text-right">
-                <img src={card.image} />
-                <div>
-                  <h5>{card.name}</h5>
-                  <p>{card.company}</p>
+        {type === "studys" &&
+          industries.map((card, index) => (
+            <Carousel.Item key={index}>
+              <IndustryCard
+                title={card.title}
+                description={card.description}
+                logos={card.logos}
+              />
+            </Carousel.Item>
+          ))}
+
+        {type === "testimonial" &&
+          testimonials.map((card, index) => (
+            <Carousel.Item key={index}>
+              <ImageCard key={index} description={card.description}>
+                <div className="avatar text-right">
+                  <img src={card.image} style={{ maxWidth: "150px" }} />
+                  <div>
+                    <h5>{card.name}</h5>
+                    <p>{card.company}</p>
+                  </div>
                 </div>
-              </div>
-            </ImageCard>
-          </Carousel.Item>
-        ))}
-    </Carousel>
+              </ImageCard>
+            </Carousel.Item>
+          ))}
+      </Carousel>
+    </>
   );
 }

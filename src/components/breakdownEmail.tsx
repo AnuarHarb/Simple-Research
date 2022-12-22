@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import { Html } from "@react-email/html";
-import Linkdin from "../assets/icons/linkdin.svg";
-import Instagram from "../assets/icons/instagram.svg";
-import Twitter from "../assets/icons/twitter.svg";
 
 const StyledContent = styled.div`
   margin: 8em 0;
@@ -21,10 +18,10 @@ interface props {
     email: string;
     company: string;
   };
-  message: string;
+  message: any;
 }
 
-export function ContactEmail(props: props) {
+export function BreakdownEmail(props: props) {
   const { url, user, message } = props;
 
   return (
@@ -38,24 +35,13 @@ export function ContactEmail(props: props) {
         }}
       >
         <h1>SimpleResearch</h1>
-        {/* <div>
-          <a href="">
-            <img src={Linkdin} />
-          </a>
-          <a href="">
-            <img src={Instagram} />
-          </a>
-          <a href="">
-            <img src={Twitter} />
-          </a>
-        </div> */}
       </div>
       <StyledContent>
         <h4>Hi {user.name}</h4>
         <p>
           Thank you for reaching out to us! We’ll contact you soon as soon as
-          possible to follow up on your request! Remember that you can estimate
-          your survey’s cost and quickly schedule a call if you’re in a hurry.
+          possible to follow up on your request! Remember that you can quickly
+          schedule a call if you’re in a hurry.
         </p>
         <p>
           Thanks, <br /> The team
@@ -107,8 +93,8 @@ export function ContactEmail(props: props) {
         </button>
       </StyledDiv>
       <p>
-        You’re receiving this email because you fill a form in our web page with
-        this message:
+        You’re receiving this email because you estimate your survey’s cost in
+        our web page with this output:
       </p>
       <div
         style={{

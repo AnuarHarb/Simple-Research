@@ -96,18 +96,6 @@ export function Calculator() {
 
   return (
     <StyledPage>
-      <div className="survey-card">
-        <SummaryCard
-          services={services}
-          length={length}
-          complexity={complexity}
-          customCoding={customCoding}
-          surveyResponse={surveyResponse}
-          segmentation={segmentation}
-          format={format}
-        />
-      </div>
-
       <aside>
         <StyledGrid>
           <section className="form-section">
@@ -305,6 +293,18 @@ export function Calculator() {
           )}
         </StyledGrid>
       </aside>
+
+      <div className="survey-card">
+        <SummaryCard
+          services={services}
+          length={length}
+          complexity={complexity}
+          customCoding={customCoding}
+          surveyResponse={surveyResponse}
+          segmentation={segmentation}
+          format={format}
+        />
+      </div>
     </StyledPage>
   );
 }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledCard = styled.section`
+  min-height: 320px;
   .description {
     font-family: workSans;
     font-weight: light;

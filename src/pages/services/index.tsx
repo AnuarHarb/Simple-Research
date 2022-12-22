@@ -4,14 +4,13 @@ import { IndustryCard } from "../../components/industryCard";
 import { CardCarrousel } from "../../components/cardCarrousel";
 import { ImageCard } from "../../components/imageCard";
 // assets
-import Services1 from "../../assets/images/services-1.svg";
-import Services2 from "../../assets/images/services-2.svg";
-import Services3 from "../../assets/images/services-3.svg";
-import Services4 from "../../assets/images/services-4.svg";
-import Services5 from "../../assets/images/services-5.svg";
-import About6 from "../../assets/images/about-6.svg";
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import Services1 from "../../assets/images/services-1.png";
+import Services2 from "../../assets/images/services-2.png";
+import Services3 from "../../assets/images/services-3.png";
+import Services4 from "../../assets/images/services-4.png";
+import Services5 from "../../assets/images/services-5.png";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 
 const StyledGrid = styled.section`
   display: grid;
@@ -32,9 +31,9 @@ export function Services() {
   return (
     <>
       <Hero
-        title="Services headline"
+        title="Build Surveys, Launch Surveys, and Generate the Insights You Need"
         subtitle="Services"
-        description="Not sure how to use the right surveys to get the insight you need, when you need it? We’ll design, host and program your surveys so you don’t have to. On top of that, we’ll deliver your insights within 2-3 weeks."
+        description="Not sure how to leverage surveys to get the insight you need, when you need them?  We’ll design, host, and program your surveys so you don’t have to. On top of that, we’ll deliver your insights within 2-3 weeks."
         button="Get started ->"
         link="/calculator"
       >
@@ -44,7 +43,7 @@ export function Services() {
         ></img>
       </Hero>
 
-      <CardCarrousel type="studys" />
+      <CardCarrousel type="industries" />
 
       <section>
         <Hero
@@ -88,21 +87,6 @@ export function Services() {
       </section>
 
       <CardCarrousel type="testimonial" />
-      {/* <ImageCard
-          title="Client testimonials"
-          description="My favorite thing about working with SimpleResearch is that the
-              company truly lives by its values. It makes for a fun, inclusive,
-              inspiring work environment where people feel comfortable bringing
-              their own perspective and ideas to work."
-        >
-          <div className="avatar">
-            <img src={About6} />
-            <div>
-              <h5>Full Name</h5>
-              <p>Company Name</p>
-            </div>
-          </div>
-        </ImageCard> */}
 
       <StyledGrid>
         <ImageCard

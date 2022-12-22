@@ -7,8 +7,8 @@ import { Hero } from "../../components/hero";
 import { ImageCard } from "../../components/imageCard";
 import { sendEmail } from "../../components/emailSender";
 // assets
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 
 const StyledGrid = styled.section`
   display: grid;
@@ -89,6 +89,7 @@ export function Contact() {
 
   const handleSend = () => {
     sendEmail({ user: { name, email, company }, message });
+    handleShow();
   };
 
   return (
@@ -176,7 +177,9 @@ export function Contact() {
               type="text"
               onChange={(event) => setMessage(event.target.value)}
             ></input>
-            <Button onClick={handleShow}>{"Send message ->"}</Button>
+            <Button className="rounded-pill" onClick={handleSend}>
+              {"Send message ->"}
+            </Button>
           </section>
         </section>
 
@@ -186,6 +189,7 @@ export function Contact() {
             title="Discovery survey"
             description="Our discovery survey helps us better understand your objectives. Talk to us about your project and get full cost transparency from the get go."
             cta="Get a cost estimate ->"
+            ctaLink="/calculator"
           >
             <div className="avatar text-right">
               <img src={Discovery} />
@@ -196,6 +200,7 @@ export function Contact() {
             title="Talk to a research expert"
             description="Contact SimpleResearch today for a full overview of our expertise and methodologies."
             cta="Get in touch ->"
+            ctaLink="/calendry"
           >
             <div className="avatar text-right">
               <img src={Expert} />
@@ -204,7 +209,9 @@ export function Contact() {
         </aside>
       </StyledGrid>
 
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal show={show} onHide={handleClose} centered closeButton>
+        <Modal.Header closeButton></Modal.Header>
+
         <Modal.Body>
           <ModalForm>
             <section className="modal-container">
@@ -212,7 +219,11 @@ export function Contact() {
                 We’ve received your info, feel free to schedule a call to meet a
                 research specialist.
               </h2>
-              <Button variant="primary" onClick={handleSend}>
+              <Button
+                className="rounded-pill"
+                variant="primary"
+                onClick={handleSend}
+              >
                 <Link to="/calendry"> {"Schedule a call ->"} </Link>
               </Button>
             </section>

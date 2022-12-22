@@ -6,8 +6,8 @@ import { Interweave } from "interweave";
 import moment from "moment";
 import { ImageCard } from "../../components/imageCard";
 // assets
-import Discovery from "../../assets/images/discovery.svg";
-import Expert from "../../assets/images/research-expert.svg";
+import Discovery from "../../assets/images/discovery.png";
+import Expert from "../../assets/images/expert.png";
 
 const StyledPost = styled.section`
   .title-container {
@@ -45,6 +45,11 @@ const StyledGrid = styled.section`
 
   @media (max-width: 576px) {
     grid-template-columns: 1fr;
+  }
+
+  aside {
+    display: flex;
+    gap: 2em;
   }
 `;
 
