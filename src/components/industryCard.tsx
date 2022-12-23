@@ -14,6 +14,10 @@ const StyledGrid = styled.div`
   grid-gap: 1.5em;
   flex-wrap: wrap;
   justify-content: center;
+
+  img {
+    height: 50px;
+  }
 `;
 
 interface props {

@@ -2,49 +2,50 @@ import { Carousel } from "react-bootstrap";
 import { IndustryCard } from "./industryCard";
 import { ImageCard } from "./imageCard";
 // assets
-import GoogleLogo from "../assets/images/logos/google.svg";
-import AmazonLogo from "../assets/images/logos/amazon.svg";
-import InstagramLogo from "../assets/images/logos/instagram.svg";
-import FacebookLogo from "../assets/images/logos/facebook.svg";
-import QuialiticsLogo from "../assets/images/logos/quialitics.svg";
-import SvpLogo from "../assets/images/logos/svp.svg";
+import GoogleLogo from "../assets/images/logos/google.png";
+import AmazonLogo from "../assets/images/logos/amazon.png";
+import InstagramLogo from "../assets/images/logos/instagram.png";
+import FacebookLogo from "../assets/images/logos/facebook.png";
+import QuialiticsLogo from "../assets/images/logos/quatrics.png";
+import SvpLogo from "../assets/images/logos/svp.png";
 
-import LendingLogo from "../assets/images/logos/lending.svg";
-import WellsLogo from "../assets/images/logos/wells.svg";
-import GoldenLogo from "../assets/images/logos/golden.svg";
-import CapitalLogo from "../assets/images/logos/capital.svg";
-import FarmersLogo from "../assets/images/logos/farmers.svg";
-import charlesLogo from "../assets/images/logos/charles.svg";
-import extradeLogo from "../assets/images/logos/extrade.svg";
+import LendingLogo from "../assets/images/logos/lending.png";
+import WellsLogo from "../assets/images/logos/wells.png";
+import GoldenLogo from "../assets/images/logos/goldman.png";
+import CapitalLogo from "../assets/images/logos/capital.png";
+import FarmersLogo from "../assets/images/logos/farmers.png";
+import charlesLogo from "../assets/images/logos/charles.png";
+import extradeLogo from "../assets/images/logos/extrade.png";
 
-import fritoLogo from "../assets/images/logos/frito.svg";
-import smukersLogo from "../assets/images/logos/smukers.svg";
-import millsLogo from "../assets/images/logos/mills.svg";
-import foodLogo from "../assets/images/logos/food.svg";
-import redbullLogo from "../assets/images/logos/redbull.svg";
-import wineLogo from "../assets/images/logos/wine.svg";
-import michelinLogo from "../assets/images/logos/michelin.svg";
+import fritoLogo from "../assets/images/logos/frito.png";
+import smukersLogo from "../assets/images/logos/smuckers.png";
+import millsLogo from "../assets/images/logos/mills.png";
+import welchsLogo from "../assets/images/logos/welchs.png";
+import foodLogo from "../assets/images/logos/foods.png";
+import redbullLogo from "../assets/images/logos/redbull.jpeg";
+import wineLogo from "../assets/images/logos/wine.png";
+import michelinLogo from "../assets/images/logos/michelin.jpeg";
 
-import pandaLogo from "../assets/images/logos/panda.svg";
-import pizzaLogo from "../assets/images/logos/pizza.svg";
-import tommyLogo from "../assets/images/logos/tommy.svg";
-import BoseLogo from "../assets/images/logos/bose.svg";
-import oldnavyLogo from "../assets/images/logos/oldnavy.svg";
-import AddidasLogo from "../assets/images/logos/adidas.svg";
-import barklyLogo from "../assets/images/logos/barkly.svg";
+import pandaLogo from "../assets/images/logos/panda.png";
+import pizzaLogo from "../assets/images/logos/pizza.jpeg";
+import tommyLogo from "../assets/images/logos/tommy.png";
+import BoseLogo from "../assets/images/logos/bose.jpeg";
+import oldnavyLogo from "../assets/images/logos/oldnavy.png";
+import AddidasLogo from "../assets/images/logos/adidas.jpeg";
+import barklyLogo from "../assets/images/logos/barkley.jpeg";
 
-import UberLogo from "../assets/images/logos/uber.svg";
-import vikingLogo from "../assets/images/logos/viking.svg";
-import ExpediaLogo from "../assets/images/logos/expedia.svg";
-import carnivalLogo from "../assets/images/logos/carnival.svg";
-import hiltonLogo from "../assets/images/logos/hilton.svg";
-import deltaLogo from "../assets/images/logos/delta.svg";
+import UberLogo from "../assets/images/logos/uber.png";
+import vikingLogo from "../assets/images/logos/viking.jpeg";
+import ExpediaLogo from "../assets/images/logos/expedia.png";
+import carnivalLogo from "../assets/images/logos/carnival.png";
+import hiltonLogo from "../assets/images/logos/travel.png";
+import deltaLogo from "../assets/images/logos/delta.png";
 
 import texasLogo from "../assets/images/logos/texas.svg";
-import meritusLogo from "../assets/images/logos/meritus.svg";
-import centralLogo from "../assets/images/logos/central.svg";
-import blueLogo from "../assets/images/logos/blue.svg";
-import aspireLogo from "../assets/images/logos/aspire.svg";
+import meritusLogo from "../assets/images/logos/meritus.png";
+import centralLogo from "../assets/images/logos/central.png";
+import blueLogo from "../assets/images/logos/blue.png";
+import aspireLogo from "../assets/images/logos/aspire.png";
 
 import About6 from "../assets/images/about-6.svg";
 
@@ -80,6 +81,7 @@ const CPGLogos = [
   fritoLogo,
   smukersLogo,
   millsLogo,
+  welchsLogo,
   foodLogo,
   redbullLogo,
   wineLogo,
