@@ -33,6 +33,7 @@ import BoseLogo from "../assets/images/logos/bose.jpeg";
 import oldnavyLogo from "../assets/images/logos/oldnavy.png";
 import AddidasLogo from "../assets/images/logos/adidas.jpeg";
 import barklyLogo from "../assets/images/logos/barkley.jpeg";
+import BarbieLogo from "../assets/images/logos/barbie.png";
 
 import UberLogo from "../assets/images/logos/uber.png";
 import vikingLogo from "../assets/images/logos/viking.jpeg";
@@ -89,13 +90,13 @@ const CPGLogos = [
 ];
 
 const RetailLogos = [
-  pandaLogo,
   pizzaLogo,
-  tommyLogo,
+  AddidasLogo,
+  BarbieLogo,
   BoseLogo,
   oldnavyLogo,
-  AddidasLogo,
   barklyLogo,
+  pandaLogo,
 ];
 
 const HospitalityLogos = [

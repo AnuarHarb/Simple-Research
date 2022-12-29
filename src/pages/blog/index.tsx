@@ -51,7 +51,6 @@ export function Blog() {
   const postsResponse = async () => {
     setLoading(true);
     const postResponse = await getPosts(1);
-    console.log(postResponse);
     setLoading(false);
     setPosts(postResponse);
   };

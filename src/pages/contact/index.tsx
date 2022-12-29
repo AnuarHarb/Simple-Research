@@ -154,6 +154,15 @@ export function Contact() {
                 easy-to-understand excel reports, or advanced analytics.
               </p>
             </div>
+            <div>
+              <header>
+                <input type="checkbox" />
+                I’m not sureI’m not sure
+              </header>
+              <p>
+                 But I’m interested in starting a conversation with a research professional
+              </p>
+            </div>
           </section>
 
           <section className="inputs">

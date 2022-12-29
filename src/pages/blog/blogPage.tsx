@@ -61,7 +61,6 @@ export function BlogPage() {
     if (postId) {
       const getPost = async () => {
         const postResponse = await getSinglePosts(postId);
-        console.log("RESP", postResponse);
         setPost(postResponse);
       };
       getPost();

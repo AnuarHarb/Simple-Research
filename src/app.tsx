@@ -15,6 +15,8 @@ import { Services } from "./pages/services";
 import { Calendry } from "./pages/calendry";
 import { BlogPage } from "./pages/blog/blogPage";
 
+import { ScrollToTop } from "./utilities/scrollToTop";
+
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
@@ -26,6 +28,7 @@ function App() {
         setSidebarOpen={setSidebarOpen}
       ></Sidebar>
       <Container className="mb-5">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
