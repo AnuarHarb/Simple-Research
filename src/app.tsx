@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { Navbar } from "./components/layout/navbar";
 import { Sidebar } from "./components/layout/sidebar";
 import { Footer } from "./components/layout/footer";
+
 // pages
 import { Home } from "./pages/home";
 import { About } from "./pages/about";
@@ -17,8 +18,17 @@ import { BlogPage } from "./pages/blog/blogPage";
 
 import { ScrollToTop } from "./utilities/scrollToTop";
 
+ import ReactGA from 'react-ga';
+const TRACKING_ID = "UA-214269330-1";
+ReactGA.initialize(TRACKING_ID);
+
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+
+   useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+  
 
   return (
     <>

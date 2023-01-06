@@ -214,7 +214,7 @@ export function CardCarrousel({ type }: props) {
             <Carousel.Item key={index}>
               <ImageCard key={index} description={card.description}>
                 <div className="avatar text-right">
-                  <img src={card.image} style={{ maxWidth: "150px" }} />
+                  {/* <img src={card.image} style={{ maxWidth: "150px" }} /> */}
                   <div>
                     <h5>{card.name}</h5>
                     <p>{card.company}</p>

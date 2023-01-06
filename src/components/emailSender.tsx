@@ -11,25 +11,32 @@ interface Props {
   };
   message: any;
   type?: string;
+  interest?: string[]
 }
 
-export async function sendEmail({ user, message, type }: Props) {
+export async function sendEmail({ user, message, interest, type }: Props) {
   if (user) {
-    const emailHtml = render(
-      <ContactEmail
-        url="https://simpleresearch.co"
-        user={user}
-        message={message}
-      />
-    );
+    let email;
 
-    const BreakdownHtml = render(
-      <BreakdownEmail
-        url="https://simpleresearch.co"
-        user={user}
-        message={message}
-      />
-    );
+    if(type === 'breakdown') {
+      email = render(
+        <BreakdownEmail
+          url="https://simpleresearch.co"
+          user={user}
+          message={message}
+        />
+      );
+    } else {
+      email = render(
+        <ContactEmail
+          url="https://simpleresearch.co"
+          user={user}
+          message={message}
+          interest={interest}
+        />
+      );
+    }
+
 
     const options = {
       from: import.meta.env.REACT_APP_EMAIL,
@@ -38,7 +45,7 @@ export async function sendEmail({ user, message, type }: Props) {
         type === "breakdown"
           ? "Here's your survey price breakdown"
           : "Thank you for reaching out",
-      html: type === "breakdown" ? BreakdownHtml : emailHtml,
+      html: email
     };
 
     await emailRequest(options);

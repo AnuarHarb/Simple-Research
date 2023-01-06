@@ -83,14 +83,26 @@ export function Contact() {
   const [company, setCompany] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [interest, setInterest] = useState<string[]>([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleSend = () => {
-    sendEmail({ user: { name, email, company }, message });
+    sendEmail({ user: { name, email, company }, message, interest });
     handleShow();
   };
+
+  const updateInterest = (value: string) => {
+    const newArray = [...interest]
+    const index = newArray.indexOf(value);
+    if (index === -1) {
+      newArray.push(value); 
+    } else {
+      newArray.splice(index,1);
+    }
+    setInterest(newArray)
+  }
 
   return (
     <>
@@ -113,7 +125,7 @@ export function Contact() {
           <section className="inner-grid">
             <div>
               <header>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(event) => updateInterest('Design')}/>
                 Design
               </header>
               <p>
@@ -123,7 +135,7 @@ export function Contact() {
             </div>
             <div>
               <header>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(event) => updateInterest('Program')}/>
                 Program
               </header>
               <p>
@@ -135,7 +147,7 @@ export function Contact() {
             </div>
             <div>
               <header>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(event) => updateInterest('Host')}/>
                 Host
               </header>
               <p>
@@ -146,7 +158,7 @@ export function Contact() {
             </div>
             <div>
               <header>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(event) => updateInterest('Analyze')}/>
                 Analyze
               </header>
               <p>
@@ -156,7 +168,7 @@ export function Contact() {
             </div>
             <div>
               <header>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={(event) => updateInterest('Not sure')}/>
                 I’m not sureI’m not sure
               </header>
               <p>

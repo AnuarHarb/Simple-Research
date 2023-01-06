@@ -22,10 +22,11 @@ interface props {
     company: string;
   };
   message: string;
+  interest?: string[]
 }
 
 export function ContactEmail(props: props) {
-  const { url, user, message } = props;
+  const { url, user, message, interest } = props;
 
   return (
     <Html lang="en">
@@ -110,6 +111,16 @@ export function ContactEmail(props: props) {
         You’re receiving this email because you fill a form in our web page with
         this message:
       </p>
+      {interest && interest.map((option) => (
+        <span style={{
+              color: "black",
+              border: "2px solid blue",
+              borderRadius: "4px",
+              padding: "5px 15px",
+              margin: "10px 5px",
+              display: "inline-block"
+            }}>{option}</span>
+      ))}
       <div
         style={{
           border: "1px solid gray",
@@ -126,7 +137,7 @@ export function ContactEmail(props: props) {
           </i>
         </p>
       </div>
-      <p>© 2022 SimpleResearch, 100 Street, City </p>
+      <p>© 2022 SimpleResearch </p>
     </Html>
   );
 }
